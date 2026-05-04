@@ -22,6 +22,14 @@ class WorkoutTest(unittest.TestCase):
 
         self.assertTrue(workout.is_valid())
 
+    def test_empty_title_validation(self):
+        with self.assertRaises(ValueError):
+            Workout("", 45)
+
+    def test_negative_duration_validation(self):
+        with self.assertRaises(ValueError):
+            Workout("Кардио тренировка", -10)
+
 
 if __name__ == "__main__":
     unittest.main()
